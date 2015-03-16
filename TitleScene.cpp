@@ -5,8 +5,8 @@ Scene * TitleScene::createScene()
 {
 	auto scene = Scene::create();
 	auto actionKeyLayer = ActionKey::create();
+	//↑で取得したインスタンスを静的でないメンバに格納したい
 	auto mainLayer = TitleScene::create();
-	log("actionKeyLayer: %p", actionKeyLayer);
 	scene->addChild(mainLayer);
 	scene->addChild(actionKeyLayer);
 	return scene;
@@ -23,16 +23,10 @@ bool TitleScene::init()
 	bgi->setPosition(Point(winSize.width / 2.0f, winSize.height / 2.0f));
 	this->addChild(bgi);
 	this->scheduleUpdate();
-	this->actionKey = ActionKey::getInstance();
 	return true;
 }
 
 void TitleScene::update(float delta)
 {	
-
-	if (this->actionKey->isPressedUP()){
-		log("DOWNKEY PRESSED");
-		log("%f", delta);
-	}
-
+	//ここで使う予定
 }
